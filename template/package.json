@@ -26,10 +26,10 @@
   },
   "dependencies": {
     {{#axios}}
-    "axios": "^0.19.2",{{/axios}}{{#elementUI}}
-    "element-ui": "^2.13.2",{{/elementUI}}
+    "axios": "^0.24.0",{{/axios}}{{#elementUI}}
+    "element-ui": "^2.15.6",{{/elementUI}}
     "vue": "^2.5.2"{{#router}},
-    "vue-router": "^3.0.1"{{/router}}
+    "vue-router": "^3.5.3"{{/router}}
   },
   "devDependencies": {
     {{#lint}}
