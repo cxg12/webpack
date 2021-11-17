@@ -1,7 +1,7 @@
 /**
  * api接口统一管理
  */
-import {get, post} from './axios'
+// import {get, post} from './axios'
 /**
  * @param {string} params
  * 我们定义了一个topics方法

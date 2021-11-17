@@ -1,4 +1,5 @@
-import axios from 'template/src/axios/axios'
+import axios from 'axios'
+import {Message} from 'element-ui'
 
 // axios 配置
 const instance = axios.create({
@@ -28,11 +29,11 @@ instance.interceptors.response.use(response => {
   const res = response.data
   // 服务器异常
   if (res.code === 500) {
-    this.$message.error(res.msg)
+    Message.error(res.msg)
   }
   // 错误
   if (res.code === 100) {
-    this.$message.error(res.msg)
+    Message.error(res.msg)
   }
   // 对错误代码做处理
   return response
@@ -42,55 +43,55 @@ instance.interceptors.response.use(response => {
     switch (error.response.status) {
       case 400:
         error.message = '请求错误（400）'
-        this.$message.error(error.message)
+        Message.error(error.message)
         break
       case 401:
         error.message = '未授权，请重新登录(401)'
-        this.$message.error(error.message)
+        Message.error(error.message)
         break
       case 403:
         error.message = '拒绝访问(403)'
-        this.$message.error(error.message)
+        Message.error(error.message)
         break
       case 404:
         error.message = '请求出错(404)'
-        this.$message.error(error.message)
+        Message.error(error.message)
         break
       case 408:
         error.message = '请求超时(408)'
-        this.$message.error(error.message)
+        Message.error(error.message)
         break
       case 500:
         error.message = '服务器错误(500)'
-        this.$message.error(error.message)
+        Message.error(error.message)
         break
       case 501:
         error.message = '服务未实现(501)'
-        this.$message.error(error.message)
+        Message.error(error.message)
         break
       case 502:
         error.message = '网络错误(502)'
-        this.$message.error(error.message)
+        Message.error(error.message)
         break
       case 503:
         error.message = '服务不可用(503)'
-        this.$message.error(error.message)
+        Message.error(error.message)
         break
       case 504:
         error.message = '网络超时(504)'
-        this.$message.error(error.message)
+        Message.error(error.message)
         break
       case 505:
         error.message = 'HTTP版本不受支持(505)'
-        this.$message.error(error.message)
+        Message.error(error.message)
         break
       default:
         error.message = `连接出错(${error.response.status})!`
-        this.$message.error(error.message)
+        Message.error(error.message)
     }
   } else {
     error.message = '连接服务器失败！'
-    this.$message.error(error.message)
+    Message.error(error.message)
   }
   return Promise.reject(error)
 })
